@@ -24,13 +24,13 @@ const Header = ({ classicHeader, darkTheme, homeRef, handleNavClick }) => {
             <span className="bg-dark-2 rounded-pill p-2 mb-lg-1 d-none d-lg-inline-block">
               <img
                 className="img-fluid rounded-pill d-block"
-                src="images/profile.jpg"
-                title="I'm Simone"
+                src="images/director.jpg"
+                title="Mireya"
                 alt="profile"
               />
             </span>
             <h1 className="text-5 text-white text-center mb-0 d-lg-block">
-              Daniel Molina-Power
+              Mireya Power-Perez
             </h1>
           </Link>
           {/* Logo End */}
@@ -75,7 +75,7 @@ const Header = ({ classicHeader, darkTheme, homeRef, handleNavClick }) => {
                     setIsNavModalClose(true);
                   }}
                 >
-                  About Me
+                  Bio
                 </Link>
               </li>
               <li className="nav-item">
@@ -92,7 +92,7 @@ const Header = ({ classicHeader, darkTheme, homeRef, handleNavClick }) => {
                     setIsNavModalClose(true);
                   }}
                 >
-                  Resume
+                  Awards
                 </Link>
               </li>
               <li className="nav-item">
@@ -109,7 +109,7 @@ const Header = ({ classicHeader, darkTheme, homeRef, handleNavClick }) => {
                     setIsNavModalClose(true);
                   }}
                 >
-                  Portfolio
+                  Gallery
                 </Link>
               </li>
               <li className="nav-item">
@@ -151,30 +151,6 @@ const Header = ({ classicHeader, darkTheme, homeRef, handleNavClick }) => {
                   rel="noopener noreferrer"
                 >
                   <i className="fab fa-twitter" />
-                </a>
-              </Tooltip>
-            </li>
-            <li className="social-icons-linkedIn">
-              <Tooltip text="LinkedIn" placement="top">
-              <a
-                  href="https://www.linkedin.com/in/daniel-molina-power/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <i className="fa-brands fa-linkedin" />
-                </a>
-              </Tooltip>
-            </li>
-            <li className="social-icons-github">
-              <Tooltip text="Google" placement="top">
-              <a
-                  href="https://github.com/Dmolina-power"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <i className="fab fa-github" />
                 </a>
               </Tooltip>
             </li>
