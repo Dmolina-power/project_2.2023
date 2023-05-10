@@ -2,7 +2,6 @@ import "./App.scss";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import AboutUs from "./components/About";
-import Services from "./components/Services";
 import Resume from "./components/Resume";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
@@ -76,10 +75,6 @@ function App() {
               classicHeader={classicHeader}
               darkTheme={darkTheme}
             ></AboutUs>
-            <Services
-              classicHeader={classicHeader}
-              darkTheme={darkTheme}
-            ></Services>
             <Resume
               classicHeader={classicHeader}
               darkTheme={darkTheme}

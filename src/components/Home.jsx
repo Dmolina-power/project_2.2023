@@ -9,7 +9,7 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
         <div className="hero-mask opacity-8 bg-dark" />
         <div
           className="hero-bg parallax"
-          style={{ backgroundImage: 'url("images/intro-bg.jpg")' }}
+          style={{ backgroundImage: 'url("/images/mireyabio1.webp")' }}
         >
       </div>
       <div className="hero-content section d-flex min-vh-100">
@@ -21,10 +21,12 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
                   <Typewriter
                     options={{
                       strings: [
-                        "I'm Daniel Molina-Power.",
-                        "I'm a Web Developer.",
-                        "I'm a MERN Stack Developer.",
-                        "I'm a Front-End Developer.",
+                        "I'm Mireya Perez-Power",
+                        "Director",
+                        "Painter",
+                        "Sculptor",
+                        "Inventor",
+                        "Art Instructor.",
                       ],
                       autoStart: true,
                       loop: true,
@@ -32,7 +34,7 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
                   />
                 </h2>
                 <p className="text-5 text-light mb-4">
-                  based in Dallas, Texas.
+                  based in Miami, Florida
                 </p>
                 <a
                   href="#contact"
@@ -42,7 +44,7 @@ const Home = ({ classicHeader, darkTheme, handleNavClick }) => {
                     handleNavClick("contact");
                   }}
                 >
-                  Hire Me
+                  Contact Me
                 </a>
               </div>
             </div>

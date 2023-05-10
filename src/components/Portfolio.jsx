@@ -1,221 +1,101 @@
 import React, { useEffect, useRef, useState } from "react";
 import Isotope from "isotope-layout";
-import ProjectDetailsModal from "./ProjectDetailsModal";
+import Slider from "react-slick";
+
 const Portfolio = ({ classicHeader, darkTheme }) => {
-  // init one ref to store the future isotope object
   const isotope = useRef();
-  // store the filter keyword in a state
   const [filterKey, setFilterKey] = useState("*");
   const [imagesLoaded, setimagesLoaded] = useState(0);
-  const [selectedProjectDetails, setSelectedProjectDetails] = useState();
 
-  const filters = {
-    DESIGN: "",
-    BRAND: "",
-    PHOTOS: "",
-  };
-
-  const projectsData = [
+  const reviews = [
     {
-      title: "Piag Museum",
-      projectInfo:
-        "a Non Profit Art Museum built in React.",
-        client: "Mireya Perez-Power",
-      technologies: "HTML5, CSS3,React.",
-      url: {
-        name: "www.piagmuseum.org",
-        link: "https://www.piagmuseum.org",
-      },
-      thumbImage: "images/gallery.jpg",
-      categories: [filters.BRAND],
+      src: "images/gallery1.webp",
+      desc: "Landscape of Tobago",
     },
     {
-      title: "Project Title 2",
-      projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      client: "Ruby Clinton",
-      technologies: "iOS, HTML5, CSS3, PHP, Java",
-      industry: "Art & Design",
-      date: "July 16, 2019",
-      url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
-      },
-      socialLinks: {
-        facebook: "http://www.facebook.com/",
-        twitter: "http://www.twitter.com/",
-        google: "http://www.google.com/",
-        instagram: "http://www.instagram.com/",
-        mail: "mailto:example@gmail.com",
-      },
-      thumbImage: "images/projects/project-2.jpg",
-      sliderImages: [
-        "images/projects/project-2.jpg",
-        "images/projects/project-5.jpg",
-      ],
-      categories: [filters.DESIGN],
+      src: "images/gallery2.webp",
+      desc: "Angyle Waterfall Tobago Island 2013",
     },
     {
-      title: "Project Title 3",
-      projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      client: "Ruby Clinton",
-      technologies: "iOS, HTML5, CSS3, PHP, Java",
-      industry: "Art & Design",
-      date: "July 16, 2019",
-      url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
-      },
-      socialLinks: {
-        facebook: "http://www.facebook.com/",
-        twitter: "http://www.twitter.com/",
-        google: "http://www.google.com/",
-        instagram: "http://www.instagram.com/",
-        mail: "mailto:example@gmail.com",
-      },
-      thumbImage: "images/projects/project-3.jpg",
-      sliderImages: [
-        "images/projects/project-3.jpg",
-        "images/projects/project-5.jpg",
-      ],
-      categories: [filters.PHOTOS],
+      src: "images/gallery3.webp",
+      desc: "Agua que gime traslucides",
     },
     {
-      title: "Project Title 4",
-      projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      client: "Ruby Clinton",
-      technologies: "iOS, HTML5, CSS3, PHP, Java",
-      industry: "Art & Design",
-      date: "July 16, 2019",
-      url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
-      },
-      socialLinks: {
-        facebook: "http://www.facebook.com/",
-        twitter: "http://www.twitter.com/",
-        google: "http://www.google.com/",
-        instagram: "http://www.instagram.com/",
-        mail: "mailto:example@gmail.com",
-      },
-      thumbImage: "images/projects/project-4.jpg",
-      sliderImages: [
-        "images/projects/project-1.jpg",
-        "images/projects/project-4.jpg",
-      ],
-      categories: [filters.BRAND, filters.PHOTOS],
+      src: "images/gallery4.webp",
+      desc: "Choza de Amazonas, Venezuela",
     },
     {
-      title: "Project Title 5",
-      projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      client: "Ruby Clinton",
-      technologies: "iOS, HTML5, CSS3, PHP, Java",
-      industry: "Art & Design",
-      date: "July 16, 2019",
-      url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
-      },
-      socialLinks: {
-        facebook: "http://www.facebook.com/",
-        twitter: "http://www.twitter.com/",
-        google: "http://www.google.com/",
-        instagram: "http://www.instagram.com/",
-        mail: "mailto:example@gmail.com",
-      },
-      thumbImage: "images/projects/project-5.jpg",
-      sliderImages: [
-        "images/projects/project-1.jpg",
-        "images/projects/project-5.jpg",
-      ],
-      categories: [filters.DESIGN],
+      src: "images/gallery5.webp",
+      desc: "Reflejos",
     },
     {
-      title: "Project Title 6",
-      projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      client: "Ruby Clinton",
-      technologies: "iOS, HTML5, CSS3, PHP, Java",
-      industry: "Art & Design",
-      date: "July 16, 2019",
-      url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
-      },
-      socialLinks: {
-        facebook: "http://www.facebook.com/",
-        twitter: "http://www.twitter.com/",
-        google: "http://www.google.com/",
-        instagram: "http://www.instagram.com/",
-        mail: "mailto:example@gmail.com",
-      },
-      thumbImage: "images/projects/project-6.jpg",
-      sliderImages: [
-        "images/projects/project-1.jpg",
-        "images/projects/project-5.jpg",
-      ],
-      categories: [filters.BRAND],
+      src: "images/gallery6.webp",
+      desc: "Macuro - Sculpture",
     },
     {
-      title: "Project Title 7",
-      projectInfo:
-        "Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure.",
-      client: "Ruby Clinton",
-      technologies: "iOS, HTML5, CSS3, PHP, Java",
-      industry: "Art & Design",
-      date: "July 16, 2019",
-      url: {
-        name: "www.example.com",
-        link: "https://www.example.com",
-      },
-      socialLinks: {
-        facebook: "http://www.facebook.com/",
-        twitter: "http://www.twitter.com/",
-        google: "http://www.google.com/",
-        instagram: "http://www.instagram.com/",
-        mail: "mailto:example@gmail.com",
-      },
-      thumbImage: "images/projects/project-7.jpg",
-      sliderImages: [
-        "images/projects/project-1.jpg",
-        "images/projects/project-5.jpg",
-      ],
-      categories: [filters.DESIGN, filters.PHOTOS],
+      src: "images/gallery7.webp",
+      desc: "Mangos -Floating Cube",
+    },
+    {
+      src: "images/gallery8.webp",
+      desc: "Henry Pittier Park - Venezuela",
+    },
+    {
+      src: "images/gallery9.webp",
+      desc: "Caracas Ayer y Hoy - Serie Rostros de Caracas",
+    },
+    {
+      src: "images/gallery10.webp",
+      desc: "Lotto Flower and live Cocodrilo",
+    },
+    {
+      src: "images/gallery11.webp",
+      desc: "Mireya Painting on undulating canvas",
+    },
+    {
+      src: "images/gallery12.webp",
+      desc: "Homage to Venezuela Juan Griego undulating canva",
+    },
+    {
+      src: "images/gallery13.webp",
+      desc: "El Avila después de.........",
+    },
+    {
+      src: "images/gallery14.webp",
+      desc: "Guatopo - Venezuela",
+    },
+    {
+      src: "images/gallery15.webp",
+      desc: "Mangroves in Margarita Island",
     },
   ];
 
-  // initialize an Isotope object with configs
-  useEffect(() => {
-    isotope.current = new Isotope(".portfolio-filter", {
-      itemSelector: ".filter-item",
-      layoutMode: "masonry",
-    });
-
-    // cleanup
-    return () => {
-      isotope.current.destroy();
-    };
-  }, []);
-
-  // handling filter key change
-  useEffect(() => {
-    if (imagesLoaded) {
-      filterKey === "*"
-        ? isotope.current.arrange({ filter: `*` })
-        : isotope.current.arrange({ filter: `.${filterKey}` });
-    }
-  }, [filterKey, imagesLoaded]);
-
-  const handleFilterKeyChange = (key) => () => setFilterKey(key);
+  var settings = {
+    dots: true,
+    arrows: true,
+    infinite: true,
+    speed: 2000,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <>
       <section
         id="portfolio"
-        className={"section " + (darkTheme ? "bg-dark-2" : "bg-light")}
+        className={"section " + (darkTheme ? "bg-dark-1" : "bg-light")}
       >
         <div className={"container " + (classicHeader ? "" : "px-lg-5")}>
           {/* Heading */}
@@ -226,7 +106,7 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
                 (darkTheme ? "text-muted opacity-1" : "text-light opacity-4")
               }
             >
-              Portfolio
+              GALLERY
             </h2>
             <p
               className={
@@ -235,94 +115,41 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
               }
             >
               {" "}
-              My Work
+              My Art
               <span className="heading-separator-line border-bottom border-3 border-primary d-block mx-auto" />
             </p>
           </div>
           {/* Heading end*/}
-          {/* Filter Menu */}
-          <ul
-            className={
-              "portfolio-menu nav nav-tabs justify-content-center border-bottom-0 mb-5 " +
-              (darkTheme ? "nav-light" : "")
-            }
-          >
-            <li className="nav-item">
-              <button
-                className={"nav-link " + (filterKey === "*" ? "active" : "")}
-                onClick={handleFilterKeyChange("*")}
-              >
-                All
-              </button>
-            </li>
-            {Object.keys(filters).map((oneKey, i) => (
-              <li className="nav-item" key={i}>
-                <button
-                  className={
-                    "nav-link " +
-                    (filterKey === filters[oneKey] ? "active" : "")
-                  }
-                  onClick={handleFilterKeyChange(filters[oneKey])}
-                >
-                  {filters[oneKey]}
-                </button>
-              </li>
-            ))}
-          </ul>
-          {/* Filter Menu end */}
-          <div className="portfolio popup-ajax-gallery">
-            <div className="row portfolio-filter filter-container g-4">
-              {projectsData.length > 0 &&
-                projectsData.map((project, index) => (
+          <Slider {...settings}>
+            {reviews.length > 0 &&
+              reviews.map((value, index) => (
+                <div className="item" key={index}>
                   <div
                     className={
-                      "col-sm-6 col-lg-4 filter-item " +
-                      project.categories.join(" ")
+                      " rounded p-5 " + (darkTheme ? "bg-dark" : "bg-light")
                     }
-                    key={index}
                   >
-                    <div className="portfolio-box rounded">
-                      <div className="portfolio-img rounded">
-                        <img
-                          onLoad={() => {
-                            setimagesLoaded(imagesLoaded + 1);
-                          }}
-                          className="img-fluid d-block portfolio-image"
-                          src={project.thumbImage}
-                          alt=""
-                        />
-                        <div className="portfolio-overlay">
-                          <a
-                            className="popup-ajax stretched-link"
-                            href=""
-                            onClick={() => {
-                              setSelectedProjectDetails(projectsData[index]);
-                            }}
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                          />
-                          <div className="portfolio-overlay-details">
-                            <h5 className="text-white fw-400">
-                              {project.title}
-                            </h5>
-                            <span className="text-light">Category</span>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="d-flex align-items-center mt-auto mb-4">
+                      <img
+                        className="img-fluid border d-inline-block w-auto"
+                        src={value.src}
+                        alt=""
+                      />
                     </div>
+                    <p
+                      className={
+                        " fw-500 mb-4 " +
+                        (darkTheme ? "text-white" : "text-dark")
+                      }
+                    >
+                      “{value.desc}”
+                    </p>
                   </div>
-                ))}
-            </div>
-          </div>
+                </div>
+              ))}
+          </Slider>
         </div>
       </section>
-      <div className="project-details-modal">
-        {/* Modal */}
-        <ProjectDetailsModal
-          projectDetails={selectedProjectDetails}
-          darkTheme={darkTheme}
-        ></ProjectDetailsModal>
-      </div>
     </>
   );
 };

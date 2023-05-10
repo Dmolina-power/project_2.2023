@@ -19,7 +19,7 @@ const Footer = ({ classicHeader, darkTheme, handleNavClick }) => {
                   handleNavClick("home");
                 }}
               >
-                Danielmolinacodes
+                Mireya Perez-Power
               </a>
               . All Rights Reserved.
             </p>

@@ -91,23 +91,20 @@ const Contact = ({ classicHeader, darkTheme }) => {
               Address
             </h2>
             <p className={"text-3 mb-4 " + (darkTheme ? "text-light" : "")}>
-              2310 Graystone Dr
-              <br />
-              Rockwall TX 75032
+              Miami, Florida 33030
             </p>
             <p className={"text-3 mb-1 " + (darkTheme ? "text-light" : "")}>
               <span className="text-primary text-4 me-2">
                 <i className="fas fa-phone" />
               </span>
-              (480)532-8702
+              (305)-443-0770
             </p>
             <p className={"text-3 mb-4 " + (darkTheme ? "text-light" : "")}>
               <span className="text-primary text-4 me-2">
                 <i className="fas fa-envelope" />
               </span>
-              danielmolinapower
+              Ayerimzerep@gmail.com
               <br />
-              @gmail.com
             </p>
             <h2
               className={
@@ -124,11 +121,11 @@ const Contact = ({ classicHeader, darkTheme }) => {
             >
               <li className="social-icons-twitter">
                 <Tooltip text="Twitter" placement="top">
-                <a
-                  href="https://twitter.com/power_molina"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  <a
+                    href="https://twitter.com/power_molina"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-twitter" />
                   </a>
                 </Tooltip>
@@ -144,30 +141,6 @@ const Contact = ({ classicHeader, darkTheme }) => {
                   </a>
                 </Tooltip>
               </li>
-              <li className="social-icons-linkedIn">
-              <Tooltip text="LinkedIn" placement="top">
-              <a
-                  href="https://www.linkedin.com/in/daniel-molina-power/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <i className="fa-brands fa-linkedin" />
-                </a>
-              </Tooltip>
-            </li>
-            <li className="social-icons-github">
-              <Tooltip text="Google" placement="top">
-              <a
-                  href="https://github.com/Dmolina-power"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <i className="fab fa-github" />
-                </a>
-              </Tooltip>
-            </li>
             </ul>
           </div>
           {/* contact form */}

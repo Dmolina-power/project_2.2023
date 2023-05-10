@@ -6,6 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./sass/stylesheet.scss";
+import "./sass/color-red.scss";
 import "./index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
