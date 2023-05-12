@@ -126,12 +126,12 @@ const Portfolio = ({ classicHeader, darkTheme }) => {
                 <div className="item" key={index}>
                   <div
                     className={
-                      " rounded p-5 " + (darkTheme ? "bg-dark" : "bg-light")
+                      " rounded p-4 " + (darkTheme ? "bg-dark" : "bg-light")
                     }
                   >
                     <div className="d-flex align-items-center mt-auto mb-4">
                       <img
-                        className="img-fluid border d-inline-block w-auto"
+                        className="img-fluid d-inline-block w-auto"
                         src={value.src}
                         alt=""
                       />
